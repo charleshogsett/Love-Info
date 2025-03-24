@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title</title>
+    <style>
+        /* Hide the popup by default */
+        .popuptext {
+            visibility: hidden;
+            background-color: #f1f1f1;
+            color: black;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px;
+            position: absolute;
+            z-index: 1;
+            bottom: 100%; /* Position it above the button */
+            left: 50%;
+            margin-left: -150px; /* Center the popup */
+            width: 300px;
+        }
+
+        /* Show the popup text when the submit button is hovered over */
+        .popup:hover .popuptext {
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Info</h1>
+
+<p>Please fill out this form so that we may contact you. Please no worry. We will never call more than 10 times on the same day.</p>
+
+<form>
+    <div>
+        <label for="name">Full Name</label>
+        <input type="text" name="name" id="name" required>
+    </div>
+    <div>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required>
+    </div>
+    <div>
+        <label for="phone">Phone</label>
+        <input type="phone" name="phone" id="phone" required pattern="^\+?[0-9]{10,15}$" title="Phone number should be between 10 to 15 digits.">
+    </div>
+    <div>
+        <label for="agree">Agree</label>
+        <input type="checkbox" name="agree" id="agree" required>
+    </div>
+
+    <button type="reset">Reset</button>
+</form>
+
+<!-- The Submit button with hover functionality -->
+<div class="popup">
+    <button type="button">Submit</button>
+    <span class="popuptext" id="myPopup">Thank You! Per our privacy policy we will never send you more than 10 messages per day!</span>
+</div>
+
+</body>
+</html>
