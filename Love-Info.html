@@ -21,10 +21,20 @@
             width: 300px;
         }
 
-        /* Show the popup text when the submit button is hovered over */
-        .popup:hover .popuptext {
-            visibility: visible;
+        /* Optional: Adding some styling to make the button look nicer */
+        .popup button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
         }
+
     </style>
 </head>
 <body>
@@ -33,7 +43,7 @@
 
 <p>Please fill out this form so that we may contact you. Please no worry. We will never call more than 10 times on the same day.</p>
 
-<form>
+<form id="myForm">
     <div>
         <label for="name">Full Name</label>
         <input type="text" name="name" id="name" required>
@@ -44,21 +54,35 @@
     </div>
     <div>
         <label for="phone">Phone</label>
-        <input type="phone" name="phone" id="phone" required pattern="^\+?[0-9]{10,15}$" title="Phone number should be between 10 to 15 digits.">
+        <input type="text" name="phone" id="phone" required pattern="^\+?[0-9]{10,15}$" title="Phone number should be between 10 to 15 digits.">
     </div>
     <div>
         <label for="agree">Agree</label>
         <input type="checkbox" name="agree" id="agree" required>
     </div>
 
+    <!-- Submit Button Section with Popup -->
+    <div class="popup">
+        <button type="button" id="submitBtn">Submit</button>
+        <span class="popuptext" id="myPopup">Thank You! Per our privacy policy we will never send you more than 10 messages per day!</span>
+    </div>
+
     <button type="reset">Reset</button>
 </form>
 
-<!-- The Submit button with hover functionality -->
-<div class="popup">
-    <button type="button">Submit</button>
-    <span class="popuptext" id="myPopup">Thank You! Per our privacy policy we will never send you more than 10 messages per day!</span>
-</div>
+<script>
+    // Get the button and popup elements
+    const submitBtn = document.getElementById("submitBtn");
+    const popup = document.getElementById("myPopup");
+    const form = document.getElementById("myForm");
+
+    // Show the popup when the submit button is clicked
+    submitBtn.addEventListener("click", function(event) {
+        event.preventDefault();  // Prevent form submission and page reload
+        console.log("Button clicked!");  // Debugging message
+        popup.style.visibility = "visible";  // Show the popup
+    });
+</script>
 
 </body>
 </html>
